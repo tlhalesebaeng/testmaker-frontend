@@ -1,5 +1,8 @@
+import { useRouteError } from 'react-router-dom';
+
 const ErrorPage = () => {
-    return <h1>An error has occurred</h1>;
+    const routeError = useRouteError();
+    return <h1>{routeError.error.message}</h1>;
 };
 
 export default ErrorPage;

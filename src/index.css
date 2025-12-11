@@ -48,12 +48,12 @@ body,
     min-height: 100dvh;
 }
 
-#root {
-    display: flex;
-}
-
 main {
     width: 100%;
     flex: 1;
     background-color: rgb(255, 255, 255);
+}
+
+.flex-container {
+    display: flex;
 }

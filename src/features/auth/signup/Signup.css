@@ -3,18 +3,18 @@
     height: 100%;
 }
 
-.signup .card {
+.signup__card {
     width: 40%;
 }
 
 @media (max-width: 1000px) {
-    .signup .card {
+    .signup__card {
         width: 60%;
     }
 }
 
 @media (max-width: 700px) {
-    .signup .card {
+    .signup__card {
         width: 75%;
     }
 }

@@ -3,7 +3,7 @@ import './Signup.css';
 
 const Signup = () => {
     return (
-        <div className="signup">
+        <div className="signup flex-container center">
             <Card>
                 <h2>Signup</h2>
             </Card>

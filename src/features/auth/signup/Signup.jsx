@@ -1,7 +1,14 @@
+import Card from '../../../components/card/Card.jsx';
 import './Signup.css';
 
 const Signup = () => {
-    return <h1>Signup</h1>;
+    return (
+        <div className="signup">
+            <Card>
+                <h2>Signup</h2>
+            </Card>
+        </div>
+    );
 };
 
 export default Signup;

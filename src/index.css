@@ -55,6 +55,10 @@ main {
     background-color: rgba(34, 133, 245, 0.05);
 }
 
+button:hover {
+    cursor: pointer;
+}
+
 .flex-container {
     display: flex;
 }

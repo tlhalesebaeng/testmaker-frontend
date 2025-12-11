@@ -1,7 +1,7 @@
 import './Card.css';
 
-const Card = () => {
-    return <h1>Card</h1>;
+const Card = ({ children }) => {
+    return <div className="card">{children}</div>;
 };
 
 export default Card;

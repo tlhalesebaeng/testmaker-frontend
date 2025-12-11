@@ -1,7 +1,11 @@
 import './Input.css';
 
 const Input = () => {
-    return <input />;
+    return (
+        <div className="input-container">
+            <input />
+        </div>
+    );
 };
 
 export default Input;

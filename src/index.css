@@ -39,3 +39,15 @@
     padding: 0px;
     box-sizing: border-box;
 }
+
+html,
+body,
+#root {
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+}
+
+#root {
+    display: flex;
+}

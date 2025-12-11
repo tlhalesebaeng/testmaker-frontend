@@ -7,6 +7,10 @@
     width: 40%;
 }
 
+.signup p {
+    text-align: center;
+}
+
 @media (max-width: 1200px) {
     .signup__card {
         width: 60%;

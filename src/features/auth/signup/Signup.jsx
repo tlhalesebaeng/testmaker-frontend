@@ -4,7 +4,7 @@ import './Signup.css';
 const Signup = () => {
     return (
         <div className="signup flex-container center">
-            <Card className="signup__card flex-container justify-center">
+            <Card className="signup__card flex-container column">
                 <h2>Signup</h2>
             </Card>
         </div>

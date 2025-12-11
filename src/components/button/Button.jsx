@@ -1,9 +1,13 @@
 import './Button.css';
 
-const Button = () => {
+/**
+ * @param {JSX} children Elements that the component receives as children. They are rendered between the button tags
+ */
+
+const Button = ({ children, onClick }) => {
     return (
         <div className="button-container">
-            <button></button>
+            <button onClick={onClick}>{children}</button>
         </div>
     );
 };

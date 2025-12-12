@@ -9,9 +9,7 @@ import './Login.css';
 const Login = () => {
     const [data, setData] = useState({ username: '', password: '' }); // Input field data
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    };
+    const handleSubmit = (event) => event.preventDefault();
 
     const handleChange = (event, name) => {
         setData((prevData) => {

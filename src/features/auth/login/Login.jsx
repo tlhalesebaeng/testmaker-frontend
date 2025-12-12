@@ -1,20 +1,34 @@
+import { useState } from 'react';
+
 import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
 import Form from '../form/Form.jsx';
 
 const Login = () => {
+    const [data, setData] = useState({ username: '', password: '' }); // Input field data
+
+    const handleChange = (event, name) => {
+        setData((prevData) => {
+            const newData = { ...prevData };
+            newData[name] = event.target.value;
+            return newData;
+        });
+    };
+
     const fields = [
         {
             id: 'f-1',
             type: 'text',
             placeholder: 'Enter your username',
             labelText: 'Username',
+            onChange: (e) => handleChange(e, 'username'),
         },
         {
             id: 'f-2',
             type: 'password',
             placeholder: 'Enter your password',
             labelText: 'Password',
+            onChange: (e) => handleChange(e, 'username'),
         },
     ];
 

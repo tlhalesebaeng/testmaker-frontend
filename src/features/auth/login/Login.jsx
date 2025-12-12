@@ -36,7 +36,7 @@ const Login = () => {
             type: 'password',
             placeholder: 'Enter your password',
             labelText: 'Password',
-            onChange: (e) => handleChange(e, 'username'),
+            onChange: (e) => handleChange(e, 'password'),
         },
     ];
 

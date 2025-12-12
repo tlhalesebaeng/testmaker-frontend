@@ -21,6 +21,9 @@ const Signup = () => {
         });
     };
 
+    let disableBtn = false; // Disables the submit button
+    if (!data.username || !data.email || !data.password) disableBtn = true;
+
     const fields = [
         {
             id: 'f-1',
@@ -54,7 +57,9 @@ const Signup = () => {
                     {fields.map((field) => (
                         <Input key={field.id} {...field} />
                     ))}
-                    <Button onClick={(e) => handleSubmit(e)}>Create Account</Button>
+                    <Button disabled={disableBtn} onClick={(e) => handleSubmit(e)}>
+                        Create Account
+                    </Button>
                 </Form>
             </Card>
         </div>

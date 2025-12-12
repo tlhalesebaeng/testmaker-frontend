@@ -1,15 +1,20 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/button/Button.jsx';
 import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
 import Form from '../form/Form.jsx';
 import './Login.css';
+import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [data, setData] = useState({ username: '', password: '' }); // Input field data
 
     const handleSubmit = (event) => event.preventDefault();
+
+    const handleNavigate = () => navigate('/signup');
 
     const handleChange = (event, name) => {
         setData((prevData) => {
@@ -52,6 +57,9 @@ const Login = () => {
                         Login
                     </Button>
                 </Form>
+                <AuthQuestion onClick={handleNavigate} linkText="Signup">
+                    Don't have an account?
+                </AuthQuestion>
             </Card>
         </div>
     );

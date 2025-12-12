@@ -59,6 +59,14 @@ button:hover {
     cursor: pointer;
 }
 
+.max-width {
+    width: 100%;
+}
+
+.max-height {
+    height: 100%;
+}
+
 .flex-container {
     display: flex;
 }

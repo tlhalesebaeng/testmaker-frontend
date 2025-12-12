@@ -44,13 +44,11 @@
 html,
 body,
 #root {
-    width: 100%;
     height: auto;
     min-height: 100dvh;
 }
 
 main {
-    width: 100%;
     flex: 1;
     background-color: rgba(34, 133, 245, 0.05);
 }

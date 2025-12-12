@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 
 const RootLayout = () => {
     return (
-        <main>
+        <main className="max-width">
             <Outlet />
         </main>
     );

@@ -18,7 +18,7 @@ const Signup = () => {
     const description = 'Please fill in your details below to create an account with us';
 
     return (
-        <div className="signup flex-container center">
+        <div className="max-width max-height flex-container center">
             <Card className="signup__card flex-container column">
                 <Form heading="Signup" description={description}>
                     {fields.map((field) => (

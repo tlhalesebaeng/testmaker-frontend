@@ -16,6 +16,9 @@ const Login = () => {
         });
     };
 
+    let disableBtn = false; // Disables the submit button
+    if (!data.username || !data.password) disableBtn = true;
+
     const fields = [
         {
             id: 'f-1',
@@ -42,7 +45,7 @@ const Login = () => {
                     {fields.map((field) => (
                         <Input key={field.id} {...field} />
                     ))}
-                    <Button>Login</Button>
+                    <Button disabled={disableBtn}>Login</Button>
                 </Form>
             </Card>
         </div>

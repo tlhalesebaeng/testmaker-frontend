@@ -9,16 +9,12 @@ import './Signup.css';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 
 const Signup = () => {
-    const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
     const navigate = useNavigate();
+    const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-    };
+    const handleSubmit = (event) => event.preventDefault();
 
-    const handleNavigate = () => {
-        navigate('/login');
-    };
+    const handleNavigate = () => navigate('/login');
 
     const handleChange = (event, name) => {
         setData((prevData) => {

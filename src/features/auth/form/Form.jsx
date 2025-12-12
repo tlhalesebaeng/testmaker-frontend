@@ -10,7 +10,7 @@ const Form = ({ heading, description, children }) => {
     return (
         <div className="form">
             <h2 className="flex-container justify-center">{heading}</h2>
-            <p className="flex-container justify-center">{description}</p>
+            <p className="description flex-container justify-center">{description}</p>
             <form>{children}</form>
         </div>
     );

@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Button from '../../../components/button/Button.jsx';
 import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
@@ -5,14 +7,42 @@ import Form from '../form/Form.jsx';
 import './Signup.css';
 
 const Signup = () => {
+    const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
+
     const handleSubmit = (event) => {
         event.preventDefault();
     };
 
+    const handleChange = (event, name) => {
+        setData((prevData) => {
+            const newData = { ...prevData };
+            newData[name] = event.target.value;
+            return newData;
+        });
+    };
+
     const fields = [
-        { id: 'f-1', type: 'text', placeholder: 'Enter your username', labelText: 'Username' },
-        { id: 'f-2', type: 'email', placeholder: 'example@testmaker.com', labelText: 'Email' },
-        { id: 'f-3', type: 'password', placeholder: 'Enter your password', labelText: 'Password' },
+        {
+            id: 'f-1',
+            type: 'text',
+            placeholder: 'Enter your username',
+            labelText: 'Username',
+            onChange: (e) => handleChange(e, 'username'),
+        },
+        {
+            id: 'f-2',
+            type: 'email',
+            placeholder: 'example@testmaker.com',
+            labelText: 'Email',
+            onChange: (e) => handleChange(e, 'email'),
+        },
+        {
+            id: 'f-3',
+            type: 'password',
+            placeholder: 'Enter your password',
+            labelText: 'Password',
+            onChange: (e) => handleChange(e, 'password'),
+        },
     ];
 
     const description = 'Please fill in your details below to create an account with us';

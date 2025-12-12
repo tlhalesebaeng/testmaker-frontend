@@ -4,6 +4,7 @@ import Button from '../../../components/button/Button.jsx';
 import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
 import Form from '../form/Form.jsx';
+import './Login.css';
 
 const Login = () => {
     const [data, setData] = useState({ username: '', password: '' }); // Input field data

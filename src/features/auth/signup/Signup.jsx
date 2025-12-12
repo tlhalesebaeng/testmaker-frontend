@@ -1,6 +1,7 @@
 import Button from '../../../components/button/Button.jsx';
 import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
+import Form from '../form/Form.jsx';
 import './Signup.css';
 
 const Signup = () => {
@@ -14,19 +15,17 @@ const Signup = () => {
         { id: 'signup-field-3', type: 'password', placeholder: 'Enter your password', labelText: 'Password' },
     ];
 
+    const description = 'Please fill in your details below to create an account with us';
+
     return (
         <div className="signup flex-container center">
             <Card className="signup__card flex-container column">
-                <h2 className="flex-container justify-center">Signup</h2>
-                <p className="flex-container justify-center">
-                    Please fill in your details below to create an account with us
-                </p>
-                <form>
+                <Form heading="Signup" description={description}>
                     {fields.map((field) => (
                         <Input key={field.id} {...field} />
                     ))}
                     <Button onClick={(e) => handleSubmit(e)}>Create Account</Button>
-                </form>
+                </Form>
             </Card>
         </div>
     );

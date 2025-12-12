@@ -1,3 +1,5 @@
+import './AuthQuestion.css';
+
 /**
  *
  * @prop {JSX} children The elements that the components receive as children. This should be a text
@@ -7,7 +9,7 @@
 
 const AuthQuestion = ({ children, linkText, onClick }) => {
     return (
-        <div>
+        <div className="auth-question max-width flex-container justify-center">
             <p>{children}</p>
             <a onClick={onClick}>{linkText}</a>
         </div>

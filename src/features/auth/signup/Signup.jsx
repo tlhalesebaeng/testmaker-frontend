@@ -10,9 +10,9 @@ const Signup = () => {
     };
 
     const fields = [
-        { id: 'signup-field-1', type: 'text', placeholder: 'Enter your username', labelText: 'Username' },
-        { id: 'signup-field-2', type: 'email', placeholder: 'example@testmaker.com', labelText: 'Email' },
-        { id: 'signup-field-3', type: 'password', placeholder: 'Enter your password', labelText: 'Password' },
+        { id: 'f-1', type: 'text', placeholder: 'Enter your username', labelText: 'Username' },
+        { id: 'f-2', type: 'email', placeholder: 'example@testmaker.com', labelText: 'Email' },
+        { id: 'f-3', type: 'password', placeholder: 'Enter your password', labelText: 'Password' },
     ];
 
     const description = 'Please fill in your details below to create an account with us';

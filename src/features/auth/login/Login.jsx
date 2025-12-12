@@ -8,6 +8,10 @@ import Form from '../form/Form.jsx';
 const Login = () => {
     const [data, setData] = useState({ username: '', password: '' }); // Input field data
 
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    };
+
     const handleChange = (event, name) => {
         setData((prevData) => {
             const newData = { ...prevData };
@@ -45,7 +49,9 @@ const Login = () => {
                     {fields.map((field) => (
                         <Input key={field.id} {...field} />
                     ))}
-                    <Button disabled={disableBtn}>Login</Button>
+                    <Button disabled={disableBtn} onClick={(e) => handleSubmit(e)}>
+                        Login
+                    </Button>
                 </Form>
             </Card>
         </div>

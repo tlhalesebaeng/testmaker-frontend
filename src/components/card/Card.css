@@ -4,3 +4,20 @@
     background-color: rgb(255, 255, 255);
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
 }
+
+.auth__card {
+    width: 40%;
+    padding: 40px;
+}
+
+@media (max-width: 1200px) {
+    .auth__card {
+        width: 60%;
+    }
+}
+
+@media (max-width: 700px) {
+    .auth__card {
+        width: 75%;
+    }
+}

@@ -1,11 +1,1 @@
-@media (max-width: 1200px) {
-    .signup__card {
-        width: 60%;
-    }
-}
 
-@media (max-width: 700px) {
-    .signup__card {
-        width: 75%;
-    }
-}

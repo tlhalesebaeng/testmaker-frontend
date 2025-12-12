@@ -9,8 +9,8 @@ import './Form.css';
 const Form = ({ heading, description, children }) => {
     return (
         <div className="form">
-            <h2>{heading}</h2>
-            <p>{description}</p>
+            <h2 className="flex-container justify-center">{heading}</h2>
+            <p className="flex-container justify-center">{description}</p>
             <form>{children}</form>
         </div>
     );

@@ -1,16 +1,23 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/button/Button.jsx';
 import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
 import Form from '../form/Form.jsx';
 import './Signup.css';
+import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 
 const Signup = () => {
     const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
+    const navigate = useNavigate();
 
     const handleSubmit = (event) => {
         event.preventDefault();
+    };
+
+    const handleNavigate = () => {
+        navigate('/login');
     };
 
     const handleChange = (event, name) => {
@@ -60,6 +67,9 @@ const Signup = () => {
                     <Button disabled={disableBtn} onClick={(e) => handleSubmit(e)}>
                         Create Account
                     </Button>
+                    <AuthQuestion onClick={handleNavigate} linkText="Login">
+                        Already have an account?
+                    </AuthQuestion>
                 </Form>
             </Card>
         </div>

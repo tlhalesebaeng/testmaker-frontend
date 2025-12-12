@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import Button from '../../../components/button/Button.jsx';
 import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
 import Form from '../form/Form.jsx';
@@ -41,6 +42,7 @@ const Login = () => {
                     {fields.map((field) => (
                         <Input key={field.id} {...field} />
                     ))}
+                    <Button>Login</Button>
                 </Form>
             </Card>
         </div>

@@ -63,10 +63,10 @@ const Signup = () => {
                     <Button disabled={disableBtn} onClick={(e) => handleSubmit(e)}>
                         Create Account
                     </Button>
-                    <AuthQuestion onClick={handleNavigate} linkText="Login">
-                        Already have an account?
-                    </AuthQuestion>
                 </Form>
+                <AuthQuestion onClick={handleNavigate} linkText="Login">
+                    Already have an account?
+                </AuthQuestion>
             </Card>
         </div>
     );

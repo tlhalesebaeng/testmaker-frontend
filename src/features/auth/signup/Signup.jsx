@@ -56,7 +56,7 @@ const Signup = () => {
     return (
         <div className="max-width max-height flex-container center">
             <Card className="auth__card flex-container column">
-                <Form heading="Signup" description={description}>
+                <Form heading="Get Started" description={description}>
                     {fields.map((field) => (
                         <Input key={field.id} {...field} />
                     ))}

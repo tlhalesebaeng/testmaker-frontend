@@ -49,7 +49,7 @@ const Login = () => {
     return (
         <div className="max-width max-height flex-container center">
             <Card className="auth__card flex-container column">
-                <Form heading="Login" description={description}>
+                <Form heading="Welcome Back" description={description}>
                     {fields.map((field) => (
                         <Input key={field.id} {...field} />
                     ))}

@@ -9,6 +9,10 @@ import Form from '../form/Form.jsx';
 const ConfirmCode = () => {
     const [data, setData] = useState({ code: '' }); // Code input field data
 
+    const handleConfrim = (event) => {
+        event.preventDefault();
+    };
+
     const handleChange = (event, name) => {
         setData((prevData) => {
             const newData = { ...prevData };
@@ -33,7 +37,9 @@ const ConfirmCode = () => {
         <AuthContainer>
             <Form heading="Confirm Code" description={description}>
                 <Input {...fieldProps} />
-                <Button disabled={disableBtn}>Confirm</Button>
+                <Button disabled={disableBtn} onClick={handleConfrim}>
+                    Confirm
+                </Button>
             </Form>
             <AuthQuestion linkText="Resend">Didn't receive the code?</AuthQuestion>
         </AuthContainer>

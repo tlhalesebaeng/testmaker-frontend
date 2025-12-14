@@ -14,8 +14,6 @@ const Signup = () => {
 
     const handleSubmit = (event) => event.preventDefault();
 
-    const handleNavigate = () => navigate('/login');
-
     const handleChange = (event, name) => {
         setData((prevData) => {
             const newData = { ...prevData };
@@ -64,7 +62,7 @@ const Signup = () => {
                         Create Account
                     </Button>
                 </Form>
-                <AuthQuestion onClick={handleNavigate} linkText="Login">
+                <AuthQuestion onClick={() => navigate('/login')} linkText="Login">
                     Already have an account?
                 </AuthQuestion>
             </Card>

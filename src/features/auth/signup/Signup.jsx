@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import isValidEmail from '../../../utils/validEmail.js';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 import Button from '../../../components/button/Button.jsx';
@@ -26,7 +27,7 @@ const Signup = () => {
     };
 
     let disableBtn = false; // Disables the submit button
-    if (!data.username || !data.email || !data.password) disableBtn = true;
+    if (!data.username || !data.password || !data.email || !isValidEmail(data.email)) disableBtn = true;
 
     const fields = [
         {

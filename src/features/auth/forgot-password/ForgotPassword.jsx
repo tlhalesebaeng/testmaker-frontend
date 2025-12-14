@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/button/Button';
-import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion';
 import Form from '../form/Form.jsx';
-import './ForgotPassword.css';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
+import isValidEmail from '../../../utils/validEmail.js';
+import './ForgotPassword.css';
 
 const ForgotPassword = () => {
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ const ForgotPassword = () => {
     };
 
     let disableBtn = false; // Disables the send code button
-    if (!data.email) disableBtn = true;
+    if (!data.email || !isValidEmail(data.email)) disableBtn = true;
 
     const fieldProps = {
         type: 'email',

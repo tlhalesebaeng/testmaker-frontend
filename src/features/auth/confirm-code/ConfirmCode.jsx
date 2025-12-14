@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
@@ -8,6 +9,7 @@ import Form from '../form/Form.jsx';
 import './ConfirmCode.css';
 
 const ConfirmCode = () => {
+    const navigate = useNavigate();
     const [data, setData] = useState({ code: '' }); // Code input field data
 
     const handleConfrim = (event) => {
@@ -43,6 +45,12 @@ const ConfirmCode = () => {
                 </Button>
             </Form>
             <AuthQuestion linkText="Resend">Didn't receive the code?</AuthQuestion>
+            <div className="max-width flex-container justify-center">
+                <p className="confirm-code__message">
+                    If you have remembered your password you can abort the process and{' '}
+                    <a onClick={() => navigate('/login')}>Login</a> to access your account
+                </p>
+            </div>
         </AuthContainer>
     );
 };

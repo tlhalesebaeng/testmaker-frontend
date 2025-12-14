@@ -12,7 +12,7 @@ const ForgotPassword = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ email: '' }); // Email input field data
 
-    const handleSubmit = (event) => {
+    const handleSendCode = (event) => {
         event.preventDefault();
         navigate('/password/reset/code');
     };
@@ -42,7 +42,7 @@ const ForgotPassword = () => {
             <Card className="auth__card flex-container column">
                 <Form heading="Forgot Password?" description={description}>
                     <Input {...fieldProps} />
-                    <Button disabled={disableBtn} onClick={handleSubmit}>
+                    <Button disabled={disableBtn} onClick={handleSendCode}>
                         Send Code
                     </Button>
                 </Form>

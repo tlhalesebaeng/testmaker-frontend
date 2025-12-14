@@ -1,5 +1,6 @@
 .input-container {
     padding: 10px 0px;
+    position: relative;
 }
 
 .input-container input {
@@ -20,4 +21,16 @@
 
 .input-container label {
     font-size: 16px;
+}
+
+.input-container img {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 14px;
+    top: 46px;
+}
+
+.input-container img:hover {
+    cursor: pointer;
 }

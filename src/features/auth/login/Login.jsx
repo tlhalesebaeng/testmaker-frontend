@@ -42,11 +42,11 @@ const Login = () => {
         },
         {
             id: 'f-2',
-            type: showPassword ? 'password' : 'text',
+            type: showPassword ? 'text' : 'password',
             placeholder: 'Enter your password',
             labelText: 'Password',
             onChange: (e) => handleChange(e, 'password'),
-            imgSrc: showPassword ? openEyeImg : closeEyeImg,
+            imgSrc: showPassword ? closeEyeImg : openEyeImg,
             onImageClick: () => setShowPassword(!showPassword),
         },
     ];

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/button/Button';
 import Card from '../../../components/card/Card.jsx';
@@ -8,6 +9,7 @@ import Form from '../form/Form.jsx';
 import './ForgotPassword.css';
 
 const ForgotPassword = () => {
+    const navigate = useNavigate();
     const [data, setData] = useState({ email: '' }); // Email input field data
 
     const handleSubmit = (event) => event.preventDefault();
@@ -41,7 +43,9 @@ const ForgotPassword = () => {
                         Send Code
                     </Button>
                 </Form>
-                <AuthQuestion linkText="Login">Remember your password?</AuthQuestion>
+                <AuthQuestion onClick={() => navigate('/login')} linkText="Login">
+                    Remember your password?
+                </AuthQuestion>
             </Card>
         </div>
     );

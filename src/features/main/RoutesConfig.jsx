@@ -6,6 +6,7 @@ import ErrorPage from '../errors/ErrorPage.jsx';
 import Login from '../auth/login/Login.jsx';
 import ForgotPassword from '../auth/forgot-password/ForgotPassword.jsx';
 import Home from '../home/Home.jsx';
+import ConfirmCode from '../auth/confirm-code/ConfirmCode.jsx';
 
 const router = createBrowserRouter([
     {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
             {
                 path: 'password/reset',
                 element: <ForgotPassword />,
+            },
+            {
+                path: 'password/reset/code',
+                element: <ConfirmCode />,
             },
             {
                 path: 'home',

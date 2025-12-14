@@ -6,12 +6,15 @@ import AuthContainer from '../auth-container/AuthContainer.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
+import openEyeImg from '../../../assets/open-eye.png';
+import closeEyeImg from '../../../assets/closed-eye.png';
 import Form from '../form/Form.jsx';
 import './Signup.css';
 
 const Signup = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleSignup = (event) => {
         event.preventDefault();
@@ -46,10 +49,12 @@ const Signup = () => {
         },
         {
             id: 'f-3',
-            type: 'password',
+            type: showPassword ? 'text' : 'password',
             placeholder: 'Enter your password',
             labelText: 'Password',
             onChange: (e) => handleChange(e, 'password'),
+            imgSrc: showPassword ? closeEyeImg : openEyeImg,
+            onImageClick: () => setShowPassword(!showPassword),
         },
     ];
 

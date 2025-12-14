@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
+import openEyeImg from '../../../assets/open-eye.png';
+import closeEyeImg from '../../../assets/closed-eye.png';
 import Form from '../form/Form.jsx';
 import './ChangePassword.css';
 import { useState } from 'react';
@@ -9,6 +11,8 @@ import { useState } from 'react';
 const ChangePassword = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ password: '', confirmPassword: '' }); // Input field data
+    const [showPassword, setShowPassword] = useState(false);
+    const [showConfirmPassword, setConfirmShowPassword] = useState(false);
 
     const handleChangePassword = (event) => {
         event.preventDefault();
@@ -29,17 +33,21 @@ const ChangePassword = () => {
     const fields = [
         {
             id: 'f-1',
-            type: 'password',
+            type: showPassword ? 'text' : 'password',
             placeholder: 'Enter your new password',
             labelText: 'Password',
             onChange: (e) => handleChange(e, 'password'),
+            imgSrc: showPassword ? closeEyeImg : openEyeImg,
+            onImageClick: () => setShowPassword(!showPassword),
         },
         {
             id: 'f-2',
-            type: 'password',
+            type: showConfirmPassword ? 'text' : 'password',
             placeholder: 'Confirm your new password',
             labelText: 'Confirm Password',
-            onChange: (e) => handleChange(e, 'confirmPassword'),
+            onChange: (e) => handleChange(e, 'password'),
+            imgSrc: showConfirmPassword ? closeEyeImg : openEyeImg,
+            onImageClick: () => setConfirmShowPassword(!showConfirmPassword),
         },
     ];
     return (

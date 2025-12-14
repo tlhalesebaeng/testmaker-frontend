@@ -6,11 +6,14 @@ import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 import Form from '../form/Form.jsx';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
+import openEyeImg from '../../../assets/open-eye.png';
+import closeEyeImg from '../../../assets/closed-eye.png';
 import './Login.css';
 
 const Login = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ username: '', password: '', rememberUser: false }); // Input field data
+    const [showPassword, setShowPassword] = useState(false);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -39,10 +42,12 @@ const Login = () => {
         },
         {
             id: 'f-2',
-            type: 'password',
+            type: showPassword ? 'password' : 'text',
             placeholder: 'Enter your password',
             labelText: 'Password',
             onChange: (e) => handleChange(e, 'password'),
+            imgSrc: showPassword ? openEyeImg : closeEyeImg,
+            onImageClick: () => setShowPassword(!showPassword),
         },
     ];
 

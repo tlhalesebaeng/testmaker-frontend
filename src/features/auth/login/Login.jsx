@@ -4,9 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/button/Button.jsx';
 import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
+import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 import Form from '../form/Form.jsx';
 import './Login.css';
-import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -51,6 +51,9 @@ const Login = () => {
                     {fields.map((field) => (
                         <Input key={field.id} {...field} />
                     ))}
+                    <a className="flex-container forgot-password" onClick={() => navigate('/password/reset')}>
+                        Forgot Password
+                    </a>
                     <Button disabled={disableBtn} onClick={(e) => handleSubmit(e)}>
                         Login
                     </Button>

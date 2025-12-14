@@ -10,6 +10,8 @@ import './ForgotPassword.css';
 const ForgotPassword = () => {
     const [data, setData] = useState({ email: '' }); // Email input field data
 
+    const handleSubmit = (event) => event.preventDefault();
+
     const handleChange = (event, name) => {
         setData((prevData) => {
             const newData = { ...prevData };
@@ -32,7 +34,7 @@ const ForgotPassword = () => {
             <Card className="auth__card flex-container column">
                 <Form heading="Forgot Password?" description={description}>
                     <Input {...fieldProps} />
-                    <Button>Send Code</Button>
+                    <Button onClick={handleSubmit}>Send Code</Button>
                 </Form>
                 <AuthQuestion linkText="Login">Remember your password?</AuthQuestion>
             </Card>

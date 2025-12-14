@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Button from '../../../components/button/Button.jsx';
-import Card from '../../../components/card/Card.jsx';
 import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 import Form from '../form/Form.jsx';
-import './Login.css';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
+import './Login.css';
 
 const Login = () => {
     const navigate = useNavigate();

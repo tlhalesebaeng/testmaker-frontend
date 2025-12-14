@@ -12,7 +12,10 @@ const ForgotPassword = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ email: '' }); // Email input field data
 
-    const handleSubmit = (event) => event.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        navigate('/password/reset/code');
+    };
 
     const handleChange = (event, name) => {
         setData((prevData) => {

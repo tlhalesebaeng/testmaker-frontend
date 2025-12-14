@@ -12,7 +12,7 @@ const ConfirmCode = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ code: '' }); // Code input field data
 
-    const handleConfrim = (event) => {
+    const handleConfirm = (event) => {
         event.preventDefault();
         navigate(`/password/reset/${data.code}/new`); // Verify the code
     };
@@ -41,7 +41,7 @@ const ConfirmCode = () => {
         <AuthContainer>
             <Form heading="Confirm Code" description={description}>
                 <Input {...fieldProps} />
-                <Button disabled={disableBtn} onClick={handleConfrim}>
+                <Button disabled={disableBtn} onClick={handleConfirm}>
                     Confirm
                 </Button>
             </Form>

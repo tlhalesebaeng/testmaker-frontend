@@ -1,3 +1,18 @@
-.forgot-password {
-    justify-content: flex-end;
+.remember-me__container {
+    padding: 10px 0px;
+    justify-content: space-between;
+}
+
+.remember-me__container div {
+    align-items: center;
+}
+
+.remember-me__container input {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.remember-me__container input:hover {
+    cursor: pointer;
 }

@@ -11,7 +11,7 @@ import AuthContainer from '../auth-container/AuthContainer.jsx';
 
 const Login = () => {
     const navigate = useNavigate();
-    const [data, setData] = useState({ username: '', password: '' }); // Input field data
+    const [data, setData] = useState({ username: '', password: '', rememberUser: false }); // Input field data
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -21,7 +21,8 @@ const Login = () => {
     const handleChange = (event, name) => {
         setData((prevData) => {
             const newData = { ...prevData };
-            newData[name] = event.target.value;
+            if (name === 'rememberUser') newData[name] = event.target.checked; // This is how we get the checkbox value
+            else newData[name] = event.target.value;
             return newData;
         });
     };
@@ -54,9 +55,15 @@ const Login = () => {
                 {fields.map((field) => (
                     <Input key={field.id} {...field} />
                 ))}
-                <a className="flex-container forgot-password" onClick={() => navigate('/password/reset')}>
-                    Forgot Password
-                </a>
+                <div className="flex-container remember-me__container">
+                    <div className="flex-container">
+                        <input type="checkbox" onChange={(e) => handleChange(e, 'rememberUser')} />
+                        <p>Remember me</p>
+                    </div>
+                    <a className="forgot-password" onClick={() => navigate('/password/reset')}>
+                        Forgot Password
+                    </a>
+                </div>
                 <Button disabled={disableBtn} onClick={(e) => handleLogin(e)}>
                     Login
                 </Button>

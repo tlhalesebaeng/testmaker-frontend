@@ -18,7 +18,7 @@ const Signup = () => {
 
     const handleSignup = (event) => {
         event.preventDefault();
-        navigate('/home');
+        navigate('/confirm/code');
     };
 
     const handleChange = (event, name) => {

@@ -5,6 +5,7 @@ import Input from '../../../components/input/Input.jsx';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion';
 import Form from '../form/Form.jsx';
+import './ConfirmCode.css';
 
 const ConfirmCode = () => {
     const [data, setData] = useState({ code: '' }); // Code input field data

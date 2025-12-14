@@ -12,7 +12,10 @@ const Signup = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
 
-    const handleSubmit = (event) => event.preventDefault();
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        navigate('/home');
+    };
 
     const handleChange = (event, name) => {
         setData((prevData) => {

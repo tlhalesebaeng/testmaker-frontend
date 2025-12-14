@@ -20,6 +20,9 @@ const ForgotPassword = () => {
         });
     };
 
+    let disableBtn = false; // Disables the send code button
+    if (!data.email) disableBtn = true;
+
     const fieldProps = {
         type: 'email',
         placeholder: 'Enter your email',
@@ -34,7 +37,9 @@ const ForgotPassword = () => {
             <Card className="auth__card flex-container column">
                 <Form heading="Forgot Password?" description={description}>
                     <Input {...fieldProps} />
-                    <Button onClick={handleSubmit}>Send Code</Button>
+                    <Button disabled={disableBtn} onClick={handleSubmit}>
+                        Send Code
+                    </Button>
                 </Form>
                 <AuthQuestion linkText="Login">Remember your password?</AuthQuestion>
             </Card>

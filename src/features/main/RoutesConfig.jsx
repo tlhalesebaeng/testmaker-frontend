@@ -5,6 +5,7 @@ import RootLayout from './RootLayout.jsx';
 import ErrorPage from '../errors/ErrorPage.jsx';
 import Login from '../auth/login/Login.jsx';
 import ForgotPassword from '../auth/forgot-password/ForgotPassword.jsx';
+import Home from '../home/Home.jsx';
 
 const router = createBrowserRouter([
     {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: 'password/reset',
                 element: <ForgotPassword />,
+            },
+            {
+                path: 'home',
+                element: <Home />,
             },
         ],
     },

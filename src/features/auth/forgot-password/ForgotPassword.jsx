@@ -15,7 +15,7 @@ const ForgotPassword = () => {
 
     const handleSendCode = (event) => {
         event.preventDefault();
-        navigate('/password/reset/code');
+        navigate('/confirm/code');
     };
 
     const handleChange = (event, name) => {

@@ -12,7 +12,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ username: '', password: '' }); // Input field data
 
-    const handleSubmit = (event) => {
+    const handleLogin = (event) => {
         event.preventDefault();
         navigate('/home');
     };
@@ -57,7 +57,7 @@ const Login = () => {
                     <a className="flex-container forgot-password" onClick={() => navigate('/password/reset')}>
                         Forgot Password
                     </a>
-                    <Button disabled={disableBtn} onClick={(e) => handleSubmit(e)}>
+                    <Button disabled={disableBtn} onClick={(e) => handleLogin(e)}>
                         Login
                     </Button>
                 </Form>

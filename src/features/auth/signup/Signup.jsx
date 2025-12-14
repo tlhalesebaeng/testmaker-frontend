@@ -12,7 +12,7 @@ const Signup = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
 
-    const handleSubmit = (event) => {
+    const handleSignup = (event) => {
         event.preventDefault();
         navigate('/home');
     };
@@ -61,7 +61,7 @@ const Signup = () => {
                     {fields.map((field) => (
                         <Input key={field.id} {...field} />
                     ))}
-                    <Button disabled={disableBtn} onClick={(e) => handleSubmit(e)}>
+                    <Button disabled={disableBtn} onClick={(e) => handleSignup(e)}>
                         Create Account
                     </Button>
                 </Form>

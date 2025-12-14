@@ -7,6 +7,7 @@ import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 import Form from '../form/Form.jsx';
 import './Login.css';
+import AuthContainer from '../auth-container/AuthContainer.jsx';
 
 const Login = () => {
     const navigate = useNavigate();
@@ -48,24 +49,22 @@ const Login = () => {
     const description = 'Please fill in your details below to access your account';
 
     return (
-        <div className="max-width max-height flex-container center">
-            <Card className="auth__card flex-container column">
-                <Form heading="Welcome Back" description={description}>
-                    {fields.map((field) => (
-                        <Input key={field.id} {...field} />
-                    ))}
-                    <a className="flex-container forgot-password" onClick={() => navigate('/password/reset')}>
-                        Forgot Password
-                    </a>
-                    <Button disabled={disableBtn} onClick={(e) => handleLogin(e)}>
-                        Login
-                    </Button>
-                </Form>
-                <AuthQuestion onClick={() => navigate('/signup')} linkText="Signup">
-                    Don't have an account?
-                </AuthQuestion>
-            </Card>
-        </div>
+        <AuthContainer>
+            <Form heading="Welcome Back" description={description}>
+                {fields.map((field) => (
+                    <Input key={field.id} {...field} />
+                ))}
+                <a className="flex-container forgot-password" onClick={() => navigate('/password/reset')}>
+                    Forgot Password
+                </a>
+                <Button disabled={disableBtn} onClick={(e) => handleLogin(e)}>
+                    Login
+                </Button>
+            </Form>
+            <AuthQuestion onClick={() => navigate('/signup')} linkText="Signup">
+                Don't have an account?
+            </AuthQuestion>
+        </AuthContainer>
     );
 };
 

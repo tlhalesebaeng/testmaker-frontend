@@ -7,6 +7,7 @@ import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion';
 import Form from '../form/Form.jsx';
 import './ForgotPassword.css';
+import AuthContainer from '../auth-container/AuthContainer.jsx';
 
 const ForgotPassword = () => {
     const navigate = useNavigate();
@@ -38,19 +39,17 @@ const ForgotPassword = () => {
     const description = 'Please enter your email address to reset your password';
 
     return (
-        <div className="max-width max-height flex-container center">
-            <Card className="auth__card flex-container column">
-                <Form heading="Forgot Password?" description={description}>
-                    <Input {...fieldProps} />
-                    <Button disabled={disableBtn} onClick={handleSendCode}>
-                        Send Code
-                    </Button>
-                </Form>
-                <AuthQuestion onClick={() => navigate('/login')} linkText="Login">
-                    Remember your password?
-                </AuthQuestion>
-            </Card>
-        </div>
+        <AuthContainer>
+            <Form heading="Forgot Password?" description={description}>
+                <Input {...fieldProps} />
+                <Button disabled={disableBtn} onClick={handleSendCode}>
+                    Send Code
+                </Button>
+            </Form>
+            <AuthQuestion onClick={() => navigate('/login')} linkText="Login">
+                Remember your password?
+            </AuthQuestion>
+        </AuthContainer>
     );
 };
 

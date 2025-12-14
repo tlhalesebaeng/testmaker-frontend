@@ -1,0 +1,6 @@
+.confirm-code__message {
+    max-width: 80%;
+    margin-top: 18px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.6);
+}

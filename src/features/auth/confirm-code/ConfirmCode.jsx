@@ -17,6 +17,9 @@ const ConfirmCode = () => {
         });
     };
 
+    let disableBtn = false; // Disables the confirm button
+    if (!data.code) disableBtn = true;
+
     const fieldProps = {
         type: 'text',
         placeholder: 'Enter the code',
@@ -30,7 +33,7 @@ const ConfirmCode = () => {
         <AuthContainer>
             <Form heading="Confirm Code" description={description}>
                 <Input {...fieldProps} />
-                <Button>Confirm</Button>
+                <Button disabled={disableBtn}>Confirm</Button>
             </Form>
             <AuthQuestion linkText="Resend">Didn't receive the code?</AuthQuestion>
         </AuthContainer>

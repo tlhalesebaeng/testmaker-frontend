@@ -14,6 +14,7 @@ const ConfirmCode = () => {
 
     const handleConfrim = (event) => {
         event.preventDefault();
+        navigate(`/password/reset/${data.code}/new`); // Verify the code
     };
 
     const handleChange = (event, name) => {

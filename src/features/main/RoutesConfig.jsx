@@ -32,6 +32,10 @@ const router = createBrowserRouter([
                 element: <ConfirmCode />,
             },
             {
+                path: 'verify/email',
+                element: <ConfirmCode type="verify-email" />,
+            },
+            {
                 path: 'password/reset/:code/new',
                 element: <ChangePassword />,
             },

@@ -8,7 +8,7 @@ import AuthQuestion from '../auth-question/AuthQuestion';
 import Form from '../form/Form.jsx';
 import './ConfirmCode.css';
 
-const ConfirmCode = () => {
+const ConfirmCode = ({ type }) => {
     const navigate = useNavigate();
     const [data, setData] = useState({ code: '' }); // Code input field data
 
@@ -35,23 +35,26 @@ const ConfirmCode = () => {
         onChange: (e) => handleChange(e, 'code'),
     };
 
+    const heading = type === 'verify-email' ? 'Verify Email Address' : 'Confirm Code';
     const description = 'Enter the one time 6-digit code sent to your email';
 
     return (
         <AuthContainer>
-            <Form heading="Confirm Code" description={description}>
+            <Form heading={heading} description={description}>
                 <Input {...fieldProps} />
                 <Button disabled={disableBtn} onClick={handleConfirm}>
                     Confirm
                 </Button>
             </Form>
             <AuthQuestion linkText="Resend">Didn't receive the code?</AuthQuestion>
-            <div className="max-width flex-container justify-center">
-                <p className="confirm-code__message">
-                    If you have remembered your password you can abort the process and{' '}
-                    <a onClick={() => navigate('/login')}>Login</a> to access your account
-                </p>
-            </div>
+            {type !== 'verify-email' && (
+                <div className="max-width flex-container justify-center">
+                    <p className="confirm-code__message">
+                        If you have remembered your password you can abort the process and{' '}
+                        <a onClick={() => navigate('/login')}>Login</a> to access your account
+                    </p>
+                </div>
+            )}
         </AuthContainer>
     );
 };

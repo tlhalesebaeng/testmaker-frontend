@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useFetch } from '../../../hooks/useFetch.js';
+
 import isValidEmail from '../../../utils/validEmail.js';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
@@ -15,10 +17,14 @@ const Signup = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
     const [showPassword, setShowPassword] = useState(false);
+    const { fetch, isLoading } = useFetch();
 
-    const handleSignup = (event) => {
+    const handleSignup = async (event) => {
         event.preventDefault();
-        navigate('/confirm/code');
+
+        const response = await fetch('/auth/signup', 'post', data);
+
+        if (response) navigate('/verify/email');
     };
 
     const handleChange = (event, name) => {
@@ -66,7 +72,7 @@ const Signup = () => {
                 {fields.map((field) => (
                     <Input key={field.id} {...field} />
                 ))}
-                <Button disabled={disableBtn} onClick={(e) => handleSignup(e)}>
+                <Button disabled={disableBtn} loading={isLoading} onClick={(e) => handleSignup(e)}>
                     Create Account
                 </Button>
             </Form>

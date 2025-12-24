@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useFetch } from '../../../hooks/useFetch.js';
+
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
@@ -11,9 +13,17 @@ import './ConfirmCode.css';
 const ConfirmCode = ({ type }) => {
     const navigate = useNavigate();
     const [data, setData] = useState({ code: '' }); // Code input field data
+    const { fetch } = useFetch();
 
-    const handleConfirm = (event) => {
+    const handleConfirm = async (event) => {
         event.preventDefault();
+
+        if (type === 'verify-email') {
+            const response = await fetch('/auth/verify/email', 'post', data);
+            if (response) navigate('/home');
+            return;
+        }
+
         navigate(`/password/reset/${data.code}/new`); // Verify the code
     };
 

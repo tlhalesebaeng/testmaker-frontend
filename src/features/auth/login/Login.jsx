@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useFetch } from '../../../hooks/useFetch.js';
+
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
@@ -14,10 +16,12 @@ const Login = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ username: '', password: '', rememberUser: false }); // Input field data
     const [showPassword, setShowPassword] = useState(false);
+    const { isLoading, fetch } = useFetch();
 
-    const handleLogin = (event) => {
+    const handleLogin = async (event) => {
         event.preventDefault();
-        navigate('/home');
+        const response = await fetch('/auth/login', 'post', data);
+        if (response) navigate('/home');
     };
 
     const handleChange = (event, name) => {
@@ -68,7 +72,7 @@ const Login = () => {
                         Forgot Password
                     </a>
                 </div>
-                <Button disabled={disableBtn} onClick={(e) => handleLogin(e)}>
+                <Button loading={isLoading} disabled={disableBtn} onClick={(e) => handleLogin(e)}>
                     Login
                 </Button>
             </Form>

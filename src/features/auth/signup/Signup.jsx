@@ -10,6 +10,7 @@ import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
 import openEyeImg from '../../../assets/open-eye.png';
 import closeEyeImg from '../../../assets/closed-eye.png';
+import ErrorMessage from '../../errors/ErrorMessage.jsx';
 import Form from '../form/Form.jsx';
 import './Signup.css';
 
@@ -17,7 +18,7 @@ const Signup = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
     const [showPassword, setShowPassword] = useState(false);
-    const { fetch, isLoading } = useFetch();
+    const { isLoading, error, fetch } = useFetch();
 
     const handleSignup = async (event) => {
         event.preventDefault();
@@ -72,6 +73,7 @@ const Signup = () => {
                 {fields.map((field) => (
                     <Input key={field.id} {...field} />
                 ))}
+                {error && <ErrorMessage>{error}</ErrorMessage>}
                 <Button disabled={disableBtn} loading={isLoading} onClick={(e) => handleSignup(e)}>
                     Create Account
                 </Button>

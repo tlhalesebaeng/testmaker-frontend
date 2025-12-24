@@ -36,6 +36,10 @@ const Login = () => {
         });
     };
 
+    if (error && error === 'Email not verified! Please verify your email address') {
+        return <Navigate to="/verify/email" />;
+    }
+
     let disableBtn = false; // Disables the submit button
     if (!data.username || !data.password) disableBtn = true;
 

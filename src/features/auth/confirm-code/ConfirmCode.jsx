@@ -7,13 +7,14 @@ import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion';
+import ErrorMessage from '../../errors/ErrorMessage.jsx';
 import Form from '../form/Form.jsx';
 import './ConfirmCode.css';
 
 const ConfirmCode = ({ type }) => {
     const navigate = useNavigate();
     const [data, setData] = useState({ code: '' }); // Code input field data
-    const { isLoading, fetch } = useFetch();
+    const { isLoading, error, fetch } = useFetch();
 
     const handleConfirm = async (event) => {
         event.preventDefault();
@@ -52,6 +53,7 @@ const ConfirmCode = ({ type }) => {
         <AuthContainer>
             <Form heading={heading} description={description}>
                 <Input {...fieldProps} />
+                {error && <ErrorMessage>{error}</ErrorMessage>}
                 <Button loading={isLoading} disabled={disableBtn} onClick={handleConfirm}>
                     Confirm
                 </Button>

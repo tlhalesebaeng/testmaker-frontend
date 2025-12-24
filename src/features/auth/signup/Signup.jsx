@@ -22,9 +22,7 @@ const Signup = () => {
 
     const handleSignup = async (event) => {
         event.preventDefault();
-
         const response = await fetch('/auth/signup', 'post', data);
-
         if (response) navigate('/verify/email');
     };
 

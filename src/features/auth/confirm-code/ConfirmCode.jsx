@@ -13,7 +13,7 @@ import './ConfirmCode.css';
 const ConfirmCode = ({ type }) => {
     const navigate = useNavigate();
     const [data, setData] = useState({ code: '' }); // Code input field data
-    const { fetch } = useFetch();
+    const { isLoading, fetch } = useFetch();
 
     const handleConfirm = async (event) => {
         event.preventDefault();
@@ -52,7 +52,7 @@ const ConfirmCode = ({ type }) => {
         <AuthContainer>
             <Form heading={heading} description={description}>
                 <Input {...fieldProps} />
-                <Button disabled={disableBtn} onClick={handleConfirm}>
+                <Button loading={isLoading} disabled={disableBtn} onClick={handleConfirm}>
                     Confirm
                 </Button>
             </Form>

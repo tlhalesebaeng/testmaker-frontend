@@ -66,6 +66,11 @@ a:hover {
     cursor: pointer;
 }
 
+.error-message {
+    margin: 10px 0px;
+    color: rgb(253, 111, 107);
+}
+
 .max-width {
     width: 100%;
 }

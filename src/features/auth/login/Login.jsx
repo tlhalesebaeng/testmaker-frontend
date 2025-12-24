@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 import { useFetch } from '../../../hooks/useFetch.js';
 
@@ -8,6 +8,7 @@ import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 import Form from '../form/Form.jsx';
 import AuthContainer from '../auth-container/AuthContainer.jsx';
+import ErrorMessage from '../../errors/ErrorMessage.jsx';
 import openEyeImg from '../../../assets/open-eye.png';
 import closeEyeImg from '../../../assets/closed-eye.png';
 import './Login.css';
@@ -16,7 +17,7 @@ const Login = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ username: '', password: '', rememberUser: false }); // Input field data
     const [showPassword, setShowPassword] = useState(false);
-    const { isLoading, fetch } = useFetch();
+    const { isLoading, error, setError, fetch } = useFetch();
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -25,6 +26,8 @@ const Login = () => {
     };
 
     const handleChange = (event, name) => {
+        setError('');
+
         setData((prevData) => {
             const newData = { ...prevData };
             if (name === 'rememberUser') newData[name] = event.target.checked; // This is how we get the checkbox value
@@ -72,6 +75,7 @@ const Login = () => {
                         Forgot Password
                     </a>
                 </div>
+                {error && <ErrorMessage>{error}</ErrorMessage>}
                 <Button loading={isLoading} disabled={disableBtn} onClick={(e) => handleLogin(e)}>
                     Login
                 </Button>

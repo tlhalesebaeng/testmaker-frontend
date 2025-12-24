@@ -14,7 +14,7 @@ import './ConfirmCode.css';
 const ConfirmCode = ({ type }) => {
     const navigate = useNavigate();
     const [data, setData] = useState({ code: '' }); // Code input field data
-    const { isLoading, error, fetch } = useFetch();
+    const { isLoading, error, setError, fetch } = useFetch();
 
     const handleConfirm = async (event) => {
         event.preventDefault();
@@ -29,6 +29,8 @@ const ConfirmCode = ({ type }) => {
     };
 
     const handleChange = (event, name) => {
+        setError('');
+
         setData((prevData) => {
             const newData = { ...prevData };
             newData[name] = event.target.value;

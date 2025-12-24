@@ -18,7 +18,7 @@ const Signup = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ email: '', username: '', password: '' }); // Input field data
     const [showPassword, setShowPassword] = useState(false);
-    const { isLoading, error, fetch } = useFetch();
+    const { isLoading, error, setError, fetch } = useFetch();
 
     const handleSignup = async (event) => {
         event.preventDefault();
@@ -29,6 +29,8 @@ const Signup = () => {
     };
 
     const handleChange = (event, name) => {
+        setError('');
+
         setData((prevData) => {
             const newData = { ...prevData };
             newData[name] = event.target.value;

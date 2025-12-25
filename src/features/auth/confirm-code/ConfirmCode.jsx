@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 import { useFetch } from '../../../hooks/useFetch.js';
+import { authActions } from '../../../store/auth-slice.js';
 
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
@@ -15,13 +17,18 @@ const ConfirmCode = ({ type }) => {
     const navigate = useNavigate();
     const [data, setData] = useState({ code: '' }); // Code input field data
     const { isLoading, error, setError, fetch } = useFetch();
+    const dispatch = useDispatch();
 
     const handleConfirm = async (event) => {
         event.preventDefault();
 
         if (type === 'verify-email') {
             const response = await fetch('/auth/verify/email', 'post', data);
-            if (response) navigate('/home');
+
+            if (response && response.data) {
+                dispatch(authActions.login(response.data.user));
+                navigate('/home');
+            }
             return;
         }
 

@@ -12,7 +12,7 @@ const RootLayout = () => {
     useEffect(() => {
         const checkAuth = async () => {
             const response = await fetch('/auth/check', 'get');
-            if (response && response.data) dispatch(authActions.login(response.data.user));
+            if (response && response.data && response.data.isAuth) dispatch(authActions.login(response.data.user));
             setAuthChecked(true);
         };
         checkAuth();

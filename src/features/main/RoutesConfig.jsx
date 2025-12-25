@@ -16,28 +16,33 @@ const router = createBrowserRouter([
         errorElement: <ErrorPage />,
         children: [
             {
-                path: 'signup',
-                element: <Signup />,
-            },
-            {
-                path: 'login',
-                element: <Login />,
-            },
-            {
-                path: 'password/reset',
-                element: <ForgotPassword />,
-            },
-            {
-                path: 'confirm/code',
-                element: <ConfirmCode />,
-            },
-            {
-                path: 'verify/email',
-                element: <ConfirmCode type="verify-email" />,
-            },
-            {
-                path: 'password/reset/:code/new',
-                element: <ChangePassword />,
+                path: 'auth',
+                children: [
+                    {
+                        path: 'signup',
+                        element: <Signup />,
+                    },
+                    {
+                        path: 'login',
+                        element: <Login />,
+                    },
+                    {
+                        path: 'password/reset',
+                        element: <ForgotPassword />,
+                    },
+                    {
+                        path: 'confirm/code',
+                        element: <ConfirmCode />,
+                    },
+                    {
+                        path: 'verify/email',
+                        element: <ConfirmCode type="verify-email" />,
+                    },
+                    {
+                        path: 'password/reset/:code/new',
+                        element: <ChangePassword />,
+                    },
+                ],
             },
             {
                 path: 'home',

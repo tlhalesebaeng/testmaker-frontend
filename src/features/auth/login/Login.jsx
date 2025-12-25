@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 import { useFetch } from '../../../hooks/useFetch.js';
+import { authActions } from '../../../store/auth-slice.js';
 
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
@@ -18,11 +20,15 @@ const Login = () => {
     const [data, setData] = useState({ username: '', password: '', rememberUser: false }); // Input field data
     const [showPassword, setShowPassword] = useState(false);
     const { isLoading, error, setError, fetch } = useFetch();
+    const dispatch = useDispatch();
 
     const handleLogin = async (event) => {
         event.preventDefault();
         const response = await fetch('/auth/login', 'post', data);
-        if (response) navigate('/home');
+        if (response && response.data) {
+            dispatch(authActions.login(response.data.user));
+            navigate('/home');
+        }
     };
 
     const handleChange = (event, name) => {

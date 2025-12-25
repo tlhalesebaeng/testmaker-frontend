@@ -32,7 +32,7 @@ const ConfirmCode = ({ type }) => {
             return;
         }
 
-        navigate(`/password/reset/${data.code}/new`); // Verify the code
+        navigate(`/auth/password/reset/${data.code}/new`); // Verify the code
     };
 
     const handleChange = (event, name) => {
@@ -72,7 +72,7 @@ const ConfirmCode = ({ type }) => {
                 <div className="max-width flex-container justify-center">
                     <p className="confirm-code__message">
                         If you have remembered your password you can abort the process and{' '}
-                        <a onClick={() => navigate('/login')}>Login</a> to access your account
+                        <a onClick={() => navigate('/auth/login')}>Login</a> to access your account
                     </p>
                 </div>
             )}

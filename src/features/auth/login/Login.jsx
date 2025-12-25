@@ -46,7 +46,7 @@ const Login = () => {
     if (isAuth) return <Navigate to="/home" />;
 
     if (error && error === 'Email not verified! Please verify your email address') {
-        return <Navigate to="/verify/email" />;
+        return <Navigate to="/auth/verify/email" />;
     }
 
     let disableBtn = false; // Disables the submit button
@@ -84,7 +84,7 @@ const Login = () => {
                         <input type="checkbox" onChange={(e) => handleChange(e, 'rememberUser')} />
                         <p>Remember me</p>
                     </div>
-                    <a className="forgot-password" onClick={() => navigate('/password/reset')}>
+                    <a className="forgot-password" onClick={() => navigate('/auth/password/reset')}>
                         Forgot Password
                     </a>
                 </div>
@@ -93,7 +93,7 @@ const Login = () => {
                     Login
                 </Button>
             </Form>
-            <AuthQuestion onClick={() => navigate('/signup')} linkText="Signup">
+            <AuthQuestion onClick={() => navigate('/auth/signup')} linkText="Signup">
                 Don't have an account?
             </AuthQuestion>
         </AuthContainer>

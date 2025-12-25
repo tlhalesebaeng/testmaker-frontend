@@ -15,7 +15,7 @@ const ForgotPassword = () => {
 
     const handleSendCode = (event) => {
         event.preventDefault();
-        navigate('/confirm/code');
+        navigate('/auth/confirm/code');
     };
 
     const handleChange = (event, name) => {
@@ -46,7 +46,7 @@ const ForgotPassword = () => {
                     Send Code
                 </Button>
             </Form>
-            <AuthQuestion onClick={() => navigate('/login')} linkText="Login">
+            <AuthQuestion onClick={() => navigate('/auth/login')} linkText="Login">
                 Remember your password?
             </AuthQuestion>
         </AuthContainer>

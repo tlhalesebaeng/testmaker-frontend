@@ -23,7 +23,7 @@ const Signup = () => {
     const handleSignup = async (event) => {
         event.preventDefault();
         const response = await fetch('/auth/signup', 'post', data);
-        if (response) navigate('/verify/email');
+        if (response) navigate('/auth/verify/email');
     };
 
     const handleChange = (event, name) => {
@@ -78,7 +78,7 @@ const Signup = () => {
                     Create Account
                 </Button>
             </Form>
-            <AuthQuestion onClick={() => navigate('/login')} linkText="Login">
+            <AuthQuestion onClick={() => navigate('/auth/login')} linkText="Login">
                 Already have an account?
             </AuthQuestion>
         </AuthContainer>

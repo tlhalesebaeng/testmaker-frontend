@@ -8,6 +8,7 @@ import ForgotPassword from '../auth/forgot-password/ForgotPassword.jsx';
 import Home from '../home/Home.jsx';
 import ConfirmCode from '../auth/confirm-code/ConfirmCode.jsx';
 import ChangePassword from '../auth/change-password/ChangePassword.jsx';
+import AuthContainer from '../auth/auth-container/AuthContainer.jsx';
 
 const router = createBrowserRouter([
     {
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
         children: [
             {
                 path: 'auth',
+                element: <AuthContainer />,
                 children: [
                     {
                         path: 'signup',

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Navigate, useNavigate } from 'react-router-dom';
 
 import { useFetch } from '../../../hooks/useFetch.js';
@@ -20,7 +20,6 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     const { isLoading, error, setError, fetch } = useFetch();
     const dispatch = useDispatch();
-    const isAuth = useSelector((state) => state.auth.isAuth);
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -41,8 +40,6 @@ const Login = () => {
             return newData;
         });
     };
-
-    if (isAuth) return <Navigate to="/home" />;
 
     if (error && error === 'Email not verified! Please verify your email address') {
         return <Navigate to="/auth/verify/email" />;

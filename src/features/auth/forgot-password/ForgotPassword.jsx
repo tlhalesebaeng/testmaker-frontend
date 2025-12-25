@@ -5,12 +5,11 @@ import Button from '../../../components/button/Button';
 import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion';
 import Form from '../form/Form.jsx';
-import isValidEmail from '../../../utils/validEmail.js';
 import './ForgotPassword.css';
 
 const ForgotPassword = () => {
     const navigate = useNavigate();
-    const [data, setData] = useState({ email: '' }); // Email input field data
+    const [data, setData] = useState({ username: '' }); // Email input field data
 
     const handleSendCode = (event) => {
         event.preventDefault();
@@ -26,16 +25,16 @@ const ForgotPassword = () => {
     };
 
     let disableBtn = false; // Disables the send code button
-    if (!data.email || !isValidEmail(data.email)) disableBtn = true;
+    if (!data.email) disableBtn = true;
 
     const fieldProps = {
-        type: 'email',
-        placeholder: 'Enter your email',
-        labelText: 'Email',
+        type: 'username',
+        placeholder: 'Enter your username',
+        labelText: 'Username',
         onChange: (e) => handleChange(e, 'email'),
     };
 
-    const description = 'Please enter your email address to reset your password';
+    const description = 'Please enter your username to reset your password';
 
     return (
         <>

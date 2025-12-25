@@ -7,7 +7,6 @@ import { authActions } from '../../../store/auth-slice.js';
 
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
-import AuthContainer from '../auth-container/AuthContainer.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion';
 import ErrorMessage from '../../errors/ErrorMessage.jsx';
 import Form from '../form/Form.jsx';
@@ -59,7 +58,7 @@ const ConfirmCode = ({ type }) => {
     const description = 'Enter the one time 6-digit code sent to your email';
 
     return (
-        <AuthContainer>
+        <>
             <Form heading={heading} description={description}>
                 <Input {...fieldProps} />
                 {error && <ErrorMessage>{error}</ErrorMessage>}
@@ -76,7 +75,7 @@ const ConfirmCode = ({ type }) => {
                     </p>
                 </div>
             )}
-        </AuthContainer>
+        </>
     );
 };
 

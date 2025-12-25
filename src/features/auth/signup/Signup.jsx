@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../../hooks/useFetch.js';
 
 import isValidEmail from '../../../utils/validEmail.js';
-import AuthContainer from '../auth-container/AuthContainer.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
@@ -68,7 +67,7 @@ const Signup = () => {
     const description = 'Please fill in your details below to create an account with us';
 
     return (
-        <AuthContainer>
+        <>
             <Form heading="Get Started" description={description}>
                 {fields.map((field) => (
                     <Input key={field.id} {...field} />
@@ -81,7 +80,7 @@ const Signup = () => {
             <AuthQuestion onClick={() => navigate('/auth/login')} linkText="Login">
                 Already have an account?
             </AuthQuestion>
-        </AuthContainer>
+        </>
     );
 };
 

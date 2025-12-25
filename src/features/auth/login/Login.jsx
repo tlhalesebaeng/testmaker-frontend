@@ -9,7 +9,6 @@ import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion.jsx';
 import Form from '../form/Form.jsx';
-import AuthContainer from '../auth-container/AuthContainer.jsx';
 import ErrorMessage from '../../errors/ErrorMessage.jsx';
 import openEyeImg from '../../../assets/open-eye.png';
 import closeEyeImg from '../../../assets/closed-eye.png';
@@ -74,7 +73,7 @@ const Login = () => {
     const description = 'Please fill in your details below to access your account';
 
     return (
-        <AuthContainer>
+        <>
             <Form heading="Welcome Back" description={description}>
                 {fields.map((field) => (
                     <Input key={field.id} {...field} />
@@ -96,7 +95,7 @@ const Login = () => {
             <AuthQuestion onClick={() => navigate('/auth/signup')} linkText="Signup">
                 Don't have an account?
             </AuthQuestion>
-        </AuthContainer>
+        </>
     );
 };
 

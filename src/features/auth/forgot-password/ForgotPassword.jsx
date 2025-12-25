@@ -5,7 +5,6 @@ import Button from '../../../components/button/Button';
 import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion';
 import Form from '../form/Form.jsx';
-import AuthContainer from '../auth-container/AuthContainer.jsx';
 import isValidEmail from '../../../utils/validEmail.js';
 import './ForgotPassword.css';
 
@@ -39,7 +38,7 @@ const ForgotPassword = () => {
     const description = 'Please enter your email address to reset your password';
 
     return (
-        <AuthContainer>
+        <>
             <Form heading="Forgot Password?" description={description}>
                 <Input {...fieldProps} />
                 <Button disabled={disableBtn} onClick={handleSendCode}>
@@ -49,7 +48,7 @@ const ForgotPassword = () => {
             <AuthQuestion onClick={() => navigate('/auth/login')} linkText="Login">
                 Remember your password?
             </AuthQuestion>
-        </AuthContainer>
+        </>
     );
 };
 

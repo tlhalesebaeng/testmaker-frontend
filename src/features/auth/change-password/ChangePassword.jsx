@@ -1,7 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
-import AuthContainer from '../auth-container/AuthContainer.jsx';
 import openEyeImg from '../../../assets/open-eye.png';
 import closeEyeImg from '../../../assets/closed-eye.png';
 import Form from '../form/Form.jsx';
@@ -51,16 +50,14 @@ const ChangePassword = () => {
         },
     ];
     return (
-        <AuthContainer>
-            <Form heading="Create New Password" description="">
-                {fields.map((field) => (
-                    <Input key={field.id} {...field} />
-                ))}
-                <Button disabled={disableBtn} onClick={(e) => handleChangePassword(e)}>
-                    Change Password
-                </Button>
-            </Form>
-        </AuthContainer>
+        <Form heading="Create New Password" description="">
+            {fields.map((field) => (
+                <Input key={field.id} {...field} />
+            ))}
+            <Button disabled={disableBtn} onClick={(e) => handleChangePassword(e)}>
+                Change Password
+            </Button>
+        </Form>
     );
 };
 

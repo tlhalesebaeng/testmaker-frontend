@@ -19,7 +19,7 @@ const ResetPassword = () => {
     const [showConfirmPassword, setConfirmShowPassword] = useState(false);
     const dispatch = useDispatch();
     const params = useParams();
-    const { fetch } = useFetch();
+    const { isLoading, fetch } = useFetch();
 
     const handleChangePassword = async (event) => {
         event.preventDefault();
@@ -71,7 +71,7 @@ const ResetPassword = () => {
             {fields.map((field) => (
                 <Input key={field.id} {...field} />
             ))}
-            <Button disabled={disableBtn} onClick={(e) => handleChangePassword(e)}>
+            <Button loading={isLoading} disabled={disableBtn} onClick={(e) => handleChangePassword(e)}>
                 Change Password
             </Button>
         </Form>

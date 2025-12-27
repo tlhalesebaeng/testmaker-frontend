@@ -9,6 +9,7 @@ import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
 import openEyeImg from '../../../assets/open-eye.png';
 import closeEyeImg from '../../../assets/closed-eye.png';
+import ErrorMessage from '../../errors/ErrorMessage.jsx';
 import Form from '../form/Form.jsx';
 import './ResetPassword.css';
 
@@ -19,7 +20,7 @@ const ResetPassword = () => {
     const [showConfirmPassword, setConfirmShowPassword] = useState(false);
     const dispatch = useDispatch();
     const params = useParams();
-    const { isLoading, fetch } = useFetch();
+    const { isLoading, error, setError, fetch } = useFetch();
 
     const handleChangePassword = async (event) => {
         event.preventDefault();
@@ -35,6 +36,8 @@ const ResetPassword = () => {
     };
 
     const handleChange = (event, name) => {
+        setError('');
+
         setData((prevData) => {
             const newData = { ...prevData };
             newData[name] = event.target.value;
@@ -71,6 +74,7 @@ const ResetPassword = () => {
             {fields.map((field) => (
                 <Input key={field.id} {...field} />
             ))}
+            {error && <ErrorMessage>{error}</ErrorMessage>}
             <Button loading={isLoading} disabled={disableBtn} onClick={(e) => handleChangePassword(e)}>
                 Change Password
             </Button>

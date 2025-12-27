@@ -12,7 +12,7 @@ import './ForgotPassword.css';
 const ForgotPassword = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ username: '' }); // Email input field data
-    const { fetch } = useFetch();
+    const { isLoading, fetch } = useFetch();
 
     const handleSendCode = async (event) => {
         event.preventDefault();
@@ -44,7 +44,7 @@ const ForgotPassword = () => {
         <>
             <Form heading="Forgot Password?" description={description}>
                 <Input {...fieldProps} />
-                <Button disabled={disableBtn} onClick={handleSendCode}>
+                <Button loading={isLoading} disabled={disableBtn} onClick={handleSendCode}>
                     Send Code
                 </Button>
             </Form>

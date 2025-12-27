@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
 import { useFetch } from '../../../hooks/useFetch.js';
+import { authActions } from '../../../store/auth-slice.js';
 
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
@@ -15,6 +17,7 @@ const ResetPassword = () => {
     const [data, setData] = useState({ password: '', confirmPassword: '' }); // Input field data
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setConfirmShowPassword] = useState(false);
+    const dispatch = useDispatch();
     const params = useParams();
     const { fetch } = useFetch();
 
@@ -25,7 +28,10 @@ const ResetPassword = () => {
             params: { code: params.code },
         });
 
-        if (response && response.data && response.data.isAuth) navigate('/home');
+        if (response && response.data && response.data.isAuth) {
+            dispatch(authActions.login(response.data.user));
+            navigate('/home');
+        }
     };
 
     const handleChange = (event, name) => {

@@ -24,14 +24,17 @@ const ConfirmCode = ({ type }) => {
         if (type === 'verify-email') {
             const response = await fetch('/auth/verify/email', 'post', data);
 
-            if (response && response.data) {
+            if (response && response.data && response.data.isAuth) {
                 dispatch(authActions.login(response.data.user));
                 navigate('/home');
             }
             return;
         }
 
-        navigate(`/auth/password/reset/${data.code}/new`); // Verify the code
+        const response = await fetch('/auth/verify/code', 'post', data);
+        if (response && response.data && response.data.user) {
+            navigate(`/auth/password/reset/${data.code}/new`);
+        }
     };
 
     const handleChange = (event, name) => {

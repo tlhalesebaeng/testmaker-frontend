@@ -1,21 +1,31 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+
+import { useFetch } from '../../../hooks/useFetch.js';
+
 import Button from '../../../components/button/Button.jsx';
 import Input from '../../../components/input/Input.jsx';
 import openEyeImg from '../../../assets/open-eye.png';
 import closeEyeImg from '../../../assets/closed-eye.png';
 import Form from '../form/Form.jsx';
 import './ResetPassword.css';
-import { useState } from 'react';
 
 const ResetPassword = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ password: '', confirmPassword: '' }); // Input field data
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setConfirmShowPassword] = useState(false);
+    const params = useParams();
+    const { fetch } = useFetch();
 
-    const handleChangePassword = (event) => {
+    const handleChangePassword = async (event) => {
         event.preventDefault();
-        navigate('/home');
+
+        const response = await fetch('/auth/password/new', 'patch', data, {
+            params: { code: params.code },
+        });
+
+        if (response && response.data && response.data.isAuth) navigate('/home');
     };
 
     const handleChange = (event, name) => {
@@ -44,11 +54,12 @@ const ResetPassword = () => {
             type: showConfirmPassword ? 'text' : 'password',
             placeholder: 'Confirm your new password',
             labelText: 'Confirm Password',
-            onChange: (e) => handleChange(e, 'password'),
+            onChange: (e) => handleChange(e, 'confirmPassword'),
             imgSrc: showConfirmPassword ? closeEyeImg : openEyeImg,
             onImageClick: () => setConfirmShowPassword(!showConfirmPassword),
         },
     ];
+
     return (
         <Form heading="Create New Password" description="">
             {fields.map((field) => (

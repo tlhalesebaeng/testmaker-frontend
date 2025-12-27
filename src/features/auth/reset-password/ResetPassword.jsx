@@ -4,10 +4,10 @@ import Input from '../../../components/input/Input.jsx';
 import openEyeImg from '../../../assets/open-eye.png';
 import closeEyeImg from '../../../assets/closed-eye.png';
 import Form from '../form/Form.jsx';
-import './ChangePassword.css';
+import './ResetPassword.css';
 import { useState } from 'react';
 
-const ChangePassword = () => {
+const ResetPassword = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ password: '', confirmPassword: '' }); // Input field data
     const [showPassword, setShowPassword] = useState(false);
@@ -61,4 +61,4 @@ const ChangePassword = () => {
     );
 };
 
-export default ChangePassword;
+export default ResetPassword;

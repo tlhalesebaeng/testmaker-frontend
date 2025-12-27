@@ -6,13 +6,14 @@ import { useFetch } from '../../../hooks/useFetch.js';
 import Button from '../../../components/button/Button';
 import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion';
+import ErrorMessage from '../../errors/ErrorMessage.jsx';
 import Form from '../form/Form.jsx';
 import './ForgotPassword.css';
 
 const ForgotPassword = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ username: '' }); // Email input field data
-    const { isLoading, fetch } = useFetch();
+    const { isLoading, error, setError, fetch } = useFetch();
 
     const handleSendCode = async (event) => {
         event.preventDefault();
@@ -21,6 +22,8 @@ const ForgotPassword = () => {
     };
 
     const handleChange = (event, name) => {
+        setError('');
+
         setData((prevData) => {
             const newData = { ...prevData };
             newData[name] = event.target.value;
@@ -44,6 +47,7 @@ const ForgotPassword = () => {
         <>
             <Form heading="Forgot Password?" description={description}>
                 <Input {...fieldProps} />
+                {error && <ErrorMessage>{error}</ErrorMessage>}
                 <Button loading={isLoading} disabled={disableBtn} onClick={handleSendCode}>
                     Send Code
                 </Button>

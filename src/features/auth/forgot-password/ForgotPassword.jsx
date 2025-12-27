@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import { useFetch } from '../../../hooks/useFetch.js';
+
 import Button from '../../../components/button/Button';
 import Input from '../../../components/input/Input.jsx';
 import AuthQuestion from '../auth-question/AuthQuestion';
@@ -10,10 +12,12 @@ import './ForgotPassword.css';
 const ForgotPassword = () => {
     const navigate = useNavigate();
     const [data, setData] = useState({ username: '' }); // Email input field data
+    const { fetch } = useFetch();
 
-    const handleSendCode = (event) => {
+    const handleSendCode = async (event) => {
         event.preventDefault();
-        navigate('/auth/confirm/code');
+        const response = await fetch('/auth/password/reset', 'post', data);
+        if (response) navigate('/auth/confirm/code');
     };
 
     const handleChange = (event, name) => {

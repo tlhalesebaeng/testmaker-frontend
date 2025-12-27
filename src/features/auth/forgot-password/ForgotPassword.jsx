@@ -25,13 +25,13 @@ const ForgotPassword = () => {
     };
 
     let disableBtn = false; // Disables the send code button
-    if (!data.email) disableBtn = true;
+    if (!data.username) disableBtn = true;
 
     const fieldProps = {
         type: 'username',
         placeholder: 'Enter your username',
         labelText: 'Username',
-        onChange: (e) => handleChange(e, 'email'),
+        onChange: (e) => handleChange(e, 'username'),
     };
 
     const description = 'Please enter your username to reset your password';
